@@ -11,8 +11,8 @@
   }
 
   .box{
-    background-color: #853333;
-    border:2px solid white;
-    margin: 10px;
+    background-color: white;
+    border:2px solid #853333;
+   
     padding: 20px;
   }
