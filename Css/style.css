@@ -1,0 +1,18 @@
+.flex-container {
+    display: flex;
+    background-color: DodgerBlue;
+  }
+  
+  .flex-container > div {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+  }
+
+  .box{
+    background-color: #853333;
+    border:2px solid white;
+    margin: 10px;
+    padding: 20px;
+  }
