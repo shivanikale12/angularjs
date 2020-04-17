@@ -4,16 +4,17 @@ app.config(function($routeProvider){
     console.log("Hi2");
     $routeProvider.
     when("/NewEvent",{
-        templateUrl : "add_event.html",
+        templateUrl : "Templates/add_event.html",
         controller: "AddEventController"
     }).
     when("/DisplayEvent", {
-        templateUrl: "/show_event.html",
+        templateUrl: "Templates/show_event.html",
         controller: "ShowDisplayController"
     }).
     otherwise ({
         redirectTo: '/DisplayEvent'
     });
+    
 });
 app.controller("AddEventController", function($scope) {
     console.log("AddEventController");
