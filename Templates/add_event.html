@@ -17,10 +17,16 @@
   
   fileInput.addEventListener('change', function (evnt) {
  		fileList = [];
+	  if(fileInput.files.length>2){
+	  alert("You cannot add more than 2 files");
+		  return false;
+	  }
+	  else{
   	for (var i = 0; i < fileInput.files.length; i++) {
     	fileList.push(fileInput.files[i]);
     }
     renderFileList();
+	  }
   });
   
   renderFileList = function () {
