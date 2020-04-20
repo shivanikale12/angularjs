@@ -11,13 +11,34 @@
     <script src="Scripts/angular-route.js"></script>
 <script src="Scripts/app.js"></script>
 
+<script>
+$(document).on("scroll", function(){
+		if
+      ($(document).scrollTop() > 20){
+		  $("header").addClass("shrink");
+		}
+		else
+		{
+			$("header").removeClass("shrink");
+		}
+	});
+  $('.table-scroll').slimScroll({
+		height: '100px',
+    // width: '300px',
+		color: "#EEE"
+	});
+</script>
+
   </head>
   <body ng-app="sample">
-
-   <div class="container" style="width:100%">
-    <ul><li><a href="#!NewEvent"> Add New Event</a></li>
+    <header >
+    
+          </header>
+   <div  style="width:100%">
+   
+    <!-- <ul><li><a href="#!NewEvent"> Add New Event</a></li>
       <li><a href="#!DisplayEvent"> Display Event</a></li>
-  </ul>
+  </ul> -->
     <div ng-view></div>
    </div>
 

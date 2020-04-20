@@ -11,10 +11,10 @@ app.config(function($routeProvider){
         templateUrl: "Templates/show_event.html",
         controller: "ShowDisplayController"
     })
-    // .
-    // otherwise ({
-    //     redirectTo: '/DisplayEvent'
-    // });
+    .
+    otherwise ({
+        redirectTo: '/DisplayEvent'
+    });
     
 });
 app.controller("AddEventController", function($scope) {
