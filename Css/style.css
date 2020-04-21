@@ -12,6 +12,7 @@
 
   .box1{
     background-color: #b8e1d0;
+    /* background-color: white;; */
     border:5px solid white;
   height:150px;
     padding: 1%; 
@@ -19,20 +20,26 @@
 
   
   .box2{
-    background-color: #acdcc8;
+    /* background-color: #acdcc8; */
+    background-color: white;;
+    /* background-color: #b8e1d0; */
     border:5px solid white;
   height:150px;
     padding: 1%; 
   }
   
   .box3{
-    background-color: #a0d7c0;
+    /* background-color: #a0d7c0; */
+    background-color: #b8e1d0;
+    /* background-color:white;  */
     border:5px solid white;
   height:150px;
     padding: 1%; 
   }
   .box4{
-    background-color: #94d2b8;
+    /* background-color: #94d2b8; */
+    background-color:white;
+    /* background-color: #b8e1d0; */
     border:5px solid white;
   height:150px;
     padding: 1%; 
