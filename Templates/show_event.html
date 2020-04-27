@@ -1,8 +1,11 @@
-<div class="container-fluid"  style="padding-top:130px;padding-left:40px;">
+<div class="container-fluid"  style="padding-top:100px;padding-left:40px;">
     
-    <table class="table table responsive" style="height:80%">
+    <table class="table table responsive" id="myTable" style="height:80%">
         <tr>
-            <td class="col-sm-8 box1" style="vertical-align:middle;">
+            <td class="col-sm-8 box1" style="vertical-align:middle;padding-top: 3px;;">
+                  <div class="i" id="edit">
+                    <i class="fas fa-edit" title="Edit Data"></i>
+                </div>
                 <table class="table box-shadow--6dp" style="margin-bottom:0;">
                     <tr><td style="font-weight:bold;">Name :</td><td>Kush Kumar Singh</td>
                         <td style="font-weight:bold;">Gender :</td><td>Male</td>
@@ -12,17 +15,30 @@
                         <td style="font-weight:bold;">PAN :</td><td>DYNPS2171E</td>  
                     </tr>
                     <tr><td style="font-weight:bold;">Mother's Name :</td><td>Nitu Bihari Singh</td>
-                        <td style="font-weight:bold;">Father/Spouse Name :</td><td>Chhail Bihari Singh</td>
+                        <td style="font-weight:bold;">Father's/Spouse Name :</td><td>Chhail <span class="redColorText">Bihari</span> Singh</td>
                     </tr>
                                     </table>
             </td>
             <td class="col-sm-4 box" style="padding:4px 4px 4px 30px">
-                <img class="box-shadow--6dp docs" src="Images/applicationFrm.png" alt="Application Form" height="145" width="300">
+                <!-- <div class="pdf"  style="width:700; height:145">
+                    <object data="BHFL_AppForm.pdf" type="application/pdf"  class="zoom" onmousemove="zoom(event)">
+                        alt : <a href="BHFL_AppForm.pdf">PDF TITLE</a>
+                    </object>
+                </div> -->
+              
+ <div  style="border:1px solid black; width:350px;">
+      <object data="BHFL_AppForm.pdf" id="dvPDF"  type="application/pdf"  height="145" width="347"   onmousemove="zoom(event)" style="border:2px solid white;">
+                    </object>
+                  </div>
+              
             </td>
         </tr>
         <tr>
            
-            <td class="col-sm-8 box2" style="vertical-align:middle;">
+            <td class="col-sm-8 box2" style="vertical-align:middle;padding-top: 3px;">
+                <div class="i" id="edit">
+                    <i class="fas fa-edit" title="Edit Data"></i>
+                </div>
                 <table class="table box-shadow--6dp" style="margin-bottom:0;">
 <tr>
     
@@ -32,18 +48,24 @@
     <td>Chhail Bihari Singh</td>
 </tr>
 <tr><td style="font-weight:bold;">Date of Birth :</td>
-    <td>08/03/1969</td>
+    <td>08/<span class="redColorText">03</span>/1969</td>
     <td style="font-weight:bold;">PAN :</td>
     <td>DYNPS2171E</td>
 </tr>
                 </table>
             </td>
             <td class="col-sm-4 box" style="padding:4px 4px 4px 30px">
-                <img class="box-shadow--6dp docs" src="Images/B5184114_PAN.jpeg" alt="PAN Card" height="145" width="300">
+                <figure class="zoom" onmousemove="zoom(event)" style="background-image: url(Images/B5184114_PAN.jpeg)">
+                    <img src="Images/B5184114_PAN.jpeg" class="box-shadow--6dp docs" alt="PAN Card" height="145" width="300"/>
+                  </figure>
+                <!-- <img class="box-shadow--6dp docs" src="Images/B5184114_PAN.jpeg" alt="PAN Card" height="145" width="300"> -->
             </td>
         </tr>
         <tr>
-            <td class="col-sm-8 box3" style="vertical-align:middle;">
+            <td class="col-sm-8 box3" style="vertical-align:middle;padding-top: 3px;">
+                <div class="i" id="edit">
+                    <i class="fas fa-edit" title="Edit Data"></i>
+                </div>
                 <table class="table box-shadow--6dp table-scroll" style="margin-bottom:0;height:100px;overflow-y:scroll;">
                     <tr><td style="font-weight:bold;">Name :</td><td>Kush Kumar Singh</td>
                         <td style="font-weight:bold;">Date of Birth :</td><td>08/03/1969</td>
@@ -58,24 +80,30 @@
                         
                     </tr> -->
                     <tr>
-                        <td style="font-weight:bold;">Address :</td><td>Valakulam, Kerala</td>
+                        <td style="font-weight:bold;">Address :</td><td><span class="redColorText">Valakulam</span>, Kerala</td>
                         <td>&nbsp;</td><td>&nbsp;</td>
                     </tr>
                                     </table>
 
             </td>
             <td class="col-sm-4 box" style="padding:4px 4px 4px 30px">
-                <img class="box-shadow--6dp docs" src="Images/B6004122_P.jpeg" alt="Passport"height="145" width="300" >
+                <figure class="zoom" onmousemove="zoom(event)" style="background-image: url(Images/B6004122_P.jpeg)">
+                    <img src="Images/B6004122_P.jpeg" class="box-shadow--6dp docs" alt="Passport" height="145" width="300"/>
+                  </figure>
+                <!-- <img class="box-shadow--6dp docs" src="Images/B6004122_P.jpeg" alt="Passport"height="145" width="300" > -->
             </td>
         </tr>
         <tr>
-            <td class="col-sm-8 box4" style="vertical-align:middle;">
+            <td class="col-sm-8 box4" style="vertical-align:middle;padding-top: 3px;">
+                <div class="i" id="edit">
+                    <i class="fas fa-edit" title="Edit Data"></i>
+                </div>
                 <table class="table box-shadow--6dp" style="margin-bottom:0;">
                     <tr><td style="font-weight:bold;">Name :</td><td>Kush Kumar Singh</td>
                         <td style="font-weight:bold;">Gender :</td><td>Male</td>
                     </tr>
                     <tr><td style="font-weight:bold;">Date of Birth :</td><td>08/03/1969</td>
-                        <td style="font-weight:bold;">Father's Name :</td><td>Chhail Bihari Singh</td>
+                        <td style="font-weight:bold;">Father's Name :</td><td><span class="redColorText">Chhail</span> Bihari Singh</td>
                     </tr>
                     <tr>
                         <td style="font-weight:bold;">Address :</td><td>Valakulam, Kerala</td>
@@ -85,7 +113,10 @@
 
             </td>
             <td class="col-sm-4 box" style="padding:4px 4px 4px 30px">
-                <img class="box-shadow--6dp docs" src="Images/B4663985_V.jpeg" alt="Voter ID" height="145" width="300">
+                <figure class="zoom" onmousemove="zoom(event)" style="background-image: url(Images/B4663985_V.jpeg)">
+                    <img src="Images/B4663985_V.jpeg" class="box-shadow--6dp docs" alt="Voter ID" height="145" width="300"/>
+                  </figure>
+                <!-- <img class="box-shadow--6dp docs" src="Images/B4663985_V.jpeg" alt="Voter ID" height="145" width="300"> -->
             </td>
         </tr>
      
