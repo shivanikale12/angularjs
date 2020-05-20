@@ -1,126 +1,143 @@
-<div class="container-fluid"  style="padding-top:100px;padding-left:40px;">
-    
+<div class="container-fluid" >
+    <form name="userForm">
     <table class="table table responsive" id="myTable" style="height:80%">
         <tr>
-            <td class="col-sm-8 box1" style="vertical-align:middle;padding-top: 3px;;">
-                  <div class="i" id="edit">
-                    <i class="fas fa-edit" title="Edit Data"></i>
-                </div>
-                <table class="table box-shadow--6dp" style="margin-bottom:0;">
-                    <tr><td style="font-weight:bold;">Name :</td><td>Kush Kumar Singh</td>
-                        <td style="font-weight:bold;">Gender :</td><td>Male</td>
-                    
-                    </tr>
-                    <tr><td style="font-weight:bold;">Date of Birth :</td><td>08/03/1969</td>
-                        <td style="font-weight:bold;">PAN :</td><td>DYNPS2171E</td>  
-                    </tr>
-                    <tr><td style="font-weight:bold;">Mother's Name :</td><td>Nitu Bihari Singh</td>
-                        <td style="font-weight:bold;">Father's/Spouse Name :</td><td>Chhail <span class="redColorText">Bihari</span> Singh</td>
-                    </tr>
-                                    </table>
-            </td>
-            <td class="col-sm-4 box" style="padding:4px 4px 4px 30px">
-                <!-- <div class="pdf"  style="width:700; height:145">
-                    <object data="BHFL_AppForm.pdf" type="application/pdf"  class="zoom" onmousemove="zoom(event)">
-                        alt : <a href="BHFL_AppForm.pdf">PDF TITLE</a>
-                    </object>
-                </div> -->
-              
- <div  style="border:1px solid black; width:350px;">
-      <object data="BHFL_AppForm.pdf" id="dvPDF"  type="application/pdf"  height="145" width="347"   onmousemove="zoom(event)" style="border:2px solid white;">
-                    </object>
-                  </div>
-              
-            </td>
-        </tr>
-        <tr>
-           
-            <td class="col-sm-8 box2" style="vertical-align:middle;padding-top: 3px;">
-                <div class="i" id="edit">
-                    <i class="fas fa-edit" title="Edit Data"></i>
-                </div>
-                <table class="table box-shadow--6dp" style="margin-bottom:0;">
+            <td class="col-sm-8 box2" style="vertical-align:middle;padding-top: 0px;">
+                <a  tabindex="0"
+                style="float: right;"
+   role="button" 
+   data-html="true" 
+   data-toggle="popover" 
+   data-placement="bottom" 
+   data-trigger="hover" 
+   title="<b>Field</b> - Confidence" 
+   data-content="<div class='titleCls'>Name   -  <b> 100%</b></div> <div class='titleCls'>Date of Birth    -  <b> 100%</b></div><div class='titleCls'>Mother's Name    -  <b> 100%</b></div><div class='titleCls'>Father's Name   -   <b>100%</b></div>"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+            
+   <table class="table box-shadow--6dp" style="margin-bottom:0;">
 <tr>
-    
-    <td style="font-weight:bold;">Name :</td>
-    <td>Kush Kumar Singh</td>
-    <td style="font-weight:bold;">Father's Name :</td>
-    <td>Chhail Bihari Singh</td>
+    <td style="font-weight:bold;">Name* :</td>
+    <td ng-show="!editmode" class="tdValue">Kush Kumar Singh</td>
+    <td ng-show="editmode" class="tdValue" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+        <input name="name" type="text" class="form-control" ng-model="fisrname" pattern="[a-zA-Z]*"  required maxlength="20"> 
+        <span ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Please enter valid Name!</span>
+        <!--For only alphabet validation: pattern="[a-zA-Z]*" -->
+        <!-- For Pan card validation: pattern="^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$" -->
+    </td> 
+    <td style="font-weight:bold;">Father's Name* :</td>
+    <td ng-show="!editmode" class="tdValue">Chhail Bihari Singh</td> 
+    <td ng-show="editmode" class="tdValue" ng-class="{ 'has-error' : userForm.fatherName.$invalid && !userForm.fatherName.$pristine }">
+        <input name="fatherName" type="text" class="form-control" ng-model="" pattern="[a-zA-Z]*"  required maxlength="20"> 
+        <span ng-show="userForm.fatherName.$invalid && !userForm.fatherName.$pristine" class="help-block">Please enter valid Name!</span>
+  
+    </td>  
 </tr>
-<tr><td style="font-weight:bold;">Date of Birth :</td>
-    <td>08/<span class="redColorText">03</span>/1969</td>
-    <td style="font-weight:bold;">PAN :</td>
-    <td>DYNPS2171E</td>
+<tr>
+    <td style="font-weight:bold;">Date of Birth* :</td>
+    <td ng-if="!editmode" class="tdValue">08/<span class="redColorText">03</span>/1969</td>  
+    <td ng-if="editmode" class="tdValue"><input type="date"  value={{objdate}} class="form-control" max={{objmaxdate}} required></td> 
+    <td style="font-weight:bold;">PAN* :</td>
+    <td ng-show="!editmode" class="tdValue">DYNPS2171E</td>  
+    <td ng-show="editmode" class="tdValue" ng-class="{ 'has-error' : userForm.panNumber.$invalid && !userForm.panNumber.$pristine }">
+        <input name="panNumber" type="text" class="form-control" ng-model="" pattern="^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$"  required maxlength="10"> 
+        <span ng-show="userForm.panNumber.$invalid && !userForm.panNumber.$pristine" class="help-block">Please enter valid PAN!</span>
+        <!--For only alphabet validation: pattern="[a-zA-Z]*" -->
+        <!-- For Pan card validation: pattern="^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$" -->
+    </td> 
 </tr>
                 </table>
             </td>
+          
+          
             <td class="col-sm-4 box" style="padding:4px 4px 4px 30px">
-                <figure class="zoom" onmousemove="zoom(event)" style="background-image: url(Images/B5184114_PAN.jpeg)">
-                    <img src="Images/B5184114_PAN.jpeg" class="box-shadow--6dp docs" alt="PAN Card" height="145" width="300"/>
-                  </figure>
-                <!-- <img class="box-shadow--6dp docs" src="Images/B5184114_PAN.jpeg" alt="PAN Card" height="145" width="300"> -->
+                  <div class="objWrapper" >
+                    <object data="PDF/B5184114_PAN-converted.pdf#toolbar=0" id="dvPDFKYC"  type="application/pdf"  height="145" width="397"   style="border:2px solid white;">
+                                  </object>
+                                </div>
             </td>
         </tr>
         <tr>
-            <td class="col-sm-8 box3" style="vertical-align:middle;padding-top: 3px;">
-                <div class="i" id="edit">
-                    <i class="fas fa-edit" title="Edit Data"></i>
-                </div>
+            <td class="col-sm-8 box3" style="vertical-align:middle;padding-top: 0px;">
+              
+                <a  tabindex="0"
+                style="float: right;"
+   role="button" 
+   data-html="true" 
+   data-toggle="popover" 
+   data-placement="bottom" 
+   data-trigger="hover" 
+   title="<b>Field</b> - Confidence" 
+   data-content="<div class='titleCls'>Name   -  <b> 100%</b></div> <div class='titleCls'>Date of Birth    -  <b> 100%</b></div><div class='titleCls'>Mother's Name    -  <b> 100%</b></div><div class='titleCls'>Father's Name   -   <b>100%</b></div>"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+            
                 <table class="table box-shadow--6dp table-scroll" style="margin-bottom:0;height:100px;overflow-y:scroll;">
-                    <tr><td style="font-weight:bold;">Name :</td><td>Kush Kumar Singh</td>
-                        <td style="font-weight:bold;">Date of Birth :</td><td>08/03/1969</td>
-                       
+                    <tr><td style="font-weight:bold;">Name :</td><td class="tdValue">Kush Kumar Singh</td>
+                         
+                        <td style="font-weight:bold;">Date of Birth :</td><td class="tdValue">08/03/1969</td>
+                         
+                                              
                     </tr>
-                    <tr><td style="font-weight:bold;">Mother's Name :</td><td>Nitu Bihari Singh</td>
-                        <td style="font-weight:bold;">Father's/Spouse Name :</td><td>Chhail Bihari Singh</td>
+                    <tr><td style="font-weight:bold;">Mother's Name :</td><td class="tdValue" title="Nitu Bihari Singh Nitu Bihari Singh Nitu Bihari Singh Nitu Bihari Singh">Nitu Bihari Singh Nitu Bihari Singh Nitu Bihari Singh Nitu Bihari Singh</td> 
+                        <td style="font-weight:bold;">Father's/Spouse Name :</td><td class="tdValue">Chhail Bihari Singh</td> 
+                        
                         
                     </tr>
-                    <!-- <tr><td style="font-weight:bold;">Passport :</td><td>DYNPS2171E</td>
-                        <td style="font-weight:bold;">Date of Issue :</td><td>08/03/1969</td>
-                        
-                    </tr> -->
+                 
                     <tr>
-                        <td style="font-weight:bold;">Address :</td><td><span class="redColorText">Valakulam</span>, Kerala</td>
-                        <td>&nbsp;</td><td>&nbsp;</td>
+                        <td style="font-weight:bold;">Address :</td><td class="tdValue"><span class="redColorText">Valakulam</span>, Kerala</td> 
+                        <td>&nbsp;</td><td class="tdValue">&nbsp;</td><td>&nbsp;</td>
                     </tr>
                                     </table>
 
             </td>
             <td class="col-sm-4 box" style="padding:4px 4px 4px 30px">
-                <figure class="zoom" onmousemove="zoom(event)" style="background-image: url(Images/B6004122_P.jpeg)">
-                    <img src="Images/B6004122_P.jpeg" class="box-shadow--6dp docs" alt="Passport" height="145" width="300"/>
-                  </figure>
-                <!-- <img class="box-shadow--6dp docs" src="Images/B6004122_P.jpeg" alt="Passport"height="145" width="300" > -->
+       
+                <div class="objWrapper" >
+                    <object data="PDF/B6004122_P-converted.pdf#toolbar=0" id="dvPDFKYC"  type="application/pdf"  height="145" width="397"    style="border:2px solid white;">
+                                  </object>
+                                </div>
             </td>
         </tr>
         <tr>
-            <td class="col-sm-8 box4" style="vertical-align:middle;padding-top: 3px;">
-                <div class="i" id="edit">
-                    <i class="fas fa-edit" title="Edit Data"></i>
-                </div>
+            <td class="col-sm-8 box4" style="vertical-align:middle;padding-top: 0px;">
+                <a  tabindex="0"
+                style="float: right;"
+   role="button" 
+   data-html="true" 
+   data-toggle="popover" 
+   data-placement="bottom" 
+   data-trigger="hover" 
+   title="<b>Field</b> - Confidence" 
+   data-content="<div class='titleCls'>Name   -  <b> 100%</b></div> <div class='titleCls'>Date of Birth    -  <b> 100%</b></div><div class='titleCls'>Mother's Name    -  <b> 100%</b></div><div class='titleCls'>Father's Name   -   <b>100%</b></div>"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+               
                 <table class="table box-shadow--6dp" style="margin-bottom:0;">
-                    <tr><td style="font-weight:bold;">Name :</td><td>Kush Kumar Singh</td>
-                        <td style="font-weight:bold;">Gender :</td><td>Male</td>
+                    <tr><td style="font-weight:bold;">Name :</td><td class="tdValue">Kush Kumar Singh</td> 
+                        <td style="font-weight:bold;">Gender :</td><td class="tdValue">Male</td>  
                     </tr>
-                    <tr><td style="font-weight:bold;">Date of Birth :</td><td>08/03/1969</td>
-                        <td style="font-weight:bold;">Father's Name :</td><td><span class="redColorText">Chhail</span> Bihari Singh</td>
+                    <tr><td style="font-weight:bold;">Date of Birth :</td><td class="tdValue">08/03/1969</td> 
+                        <td style="font-weight:bold;">Father's Name :</td><td class="tdValue"><span class="redColorText">Chhail</span> Bihari Singh</td>  
                     </tr>
                     <tr>
-                        <td style="font-weight:bold;">Address :</td><td>Valakulam, Kerala</td>
-                        <td>&nbsp;</td><td>&nbsp;</td>
+                        <td style="font-weight:bold;">Address :</td>
+                        <td ng-show="!editmode" class="tdValue">Valakulam, Kerala</td>  
+                        <td ng-show="editmode" class="tdValue" ng-class="{ 'has-error' : userForm.address.$invalid && !userForm.address.$pristine }">
+                            <input name="address" type="text" class="form-control" ng-model="" pattern="[a-zA-Z]*"  required maxlength="20"> 
+                            <span ng-show="userForm.address.$invalid && !userForm.address.$pristine" class="help-block">Please enter valid Address!</span>
+                       
+                        </td> 
+                        <td>&nbsp;</td><td class="tdValue">&nbsp;</td><td>&nbsp;</td>
                     </tr>
                                     </table>
 
             </td>
             <td class="col-sm-4 box" style="padding:4px 4px 4px 30px">
-                <figure class="zoom" onmousemove="zoom(event)" style="background-image: url(Images/B4663985_V.jpeg)">
-                    <img src="Images/B4663985_V.jpeg" class="box-shadow--6dp docs" alt="Voter ID" height="145" width="300"/>
-                  </figure>
-                <!-- <img class="box-shadow--6dp docs" src="Images/B4663985_V.jpeg" alt="Voter ID" height="145" width="300"> -->
+
+                <div class="objWrapper" >
+                    <object data="PDF/B4663985_V-converted.pdf#toolbar=0" id="dvPDFKYC"  type="application/pdf"  height="145" width="397"   style="border:2px solid white;">
+                                  </object>
+                                </div>
             </td>
         </tr>
      
     </table>
-
+    </form>
    
 </div>

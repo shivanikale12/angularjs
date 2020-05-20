@@ -5,41 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="Css/loginStyles.css">
+    <!-- <link rel="stylesheet" href="Css/loginStyles.css"> -->
 
     <script src="Scripts/jquery.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/angular.min.js"></script>
-    <script src="Scripts/angular-route.js"></script>
+    <!-- <script src="Scripts/angular-route.js"></script> -->
 <script src="Scripts/app.js"></script>
-<!-- <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/a81368914c.js"></script> -->
+<script src="Scripts/jquery.slimscroll.min.js"></script>
 <link href="Css/FontFamilyPoppins.css" rel="stylesheet">
 <script src="Scripts/fontAwesomeKit.js"></script>
 <link rel="stylesheet" href="Css/style.css">
+<script src="Scripts/angular-ui-router.js"></script>
 <script>
+function ApplyScroll(){
+        $("#dvAppFrm").slimScroll({
+          height: '490px',
+          alwaysVisible: true,
+          railOpacity: 0.1,
+          railVisible: true,
+          start: 'top'   
+        });
+       
+}
+function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
+    //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
+    debugger;
+    var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
 
-$(document).on("scroll", function(){
-		if
-      ($(document).scrollTop() > 10){
-		  $("header").addClass("shrink");
-		}
-		else
-		{
-			$("header").removeClass("shrink");
-		}
-	});
-  function zoom(e){
-        console.log("inside zoom");
-        var zoomer = e.currentTarget;
-        e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
-        e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
-        x = offsetX/zoomer.offsetWidth*100
-        y = offsetY/zoomer.offsetHeight*100
-        zoomer.style.backgroundPosition = x + '% ' + y + '%';
+    var CSV = '';
+    //Set Report title in first row or line
+
+    //     CSV += ReportTitle + '\r\n\n';
+
+    //This condition will generate the Label/Header
+    if (ShowLabel) {
+      var row = "";
+
+      //This loop will extract the label from 1st index of on array
+      for (var index in arrData.KYCData[0]) {
+
+        //Now convert each value to string and comma-seprated
+        row += index + ',';
       }
 
+      row = row.slice(0, -1);
 
+      //append Label row with line break
+      CSV += row + '\r\n';
+    }
+
+    //1st loop is to extract each row
+    for (var i = 0; i < arrData.KYCData.length; i++) {
+      var row = "";
+console.log(row);
+      //2nd loop will extract each column and convert it in string comma-seprated
+      for (var index in arrData.KYCData[i]) {
+        //         	row += '"' + arrData[i][index] + '",';
+        row += arrData.KYCData[i][index] + ',';
+      }
+
+      row.slice(0, row.length - 1);
+
+      //add a line break after each row
+      CSV += row + '\r\n';
+    }
+
+    if (CSV == '') {
+      alert("Invalid data");
+      return;
+    }
+
+    //Generate a file name
+    //     var fileName = "MyReport_";
+    var fileName = "KYC_Details";
+    //this will remove the blank-spaces from the title and replace it with an underscore
+    fileName = fileName.replace(/ /g, "_");
+
+    //Initialize file format you want csv or xls
+    var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
+
+    // Now the little tricky part.
+    // you can use either>> window.open(uri);
+    // but this will not work in some browsers
+    // or you will not get the correct file extension    
+
+    //this trick will generate a temp <a /> tag
+    var link = document.createElement("a");
+    link.href = uri;
+
+    //set the visibility hidden so it will not effect on your web-layout
+    link.style = "visibility:hidden";
+    link.download = fileName + ".csv";
+
+    //this part will append the anchor tag and remove it after automatic click
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+function NavActiveChange(){
+    $('.navbar a').on('click',function () { 
+                      debugger;
+            $('.navbar').find('li.active') 
+            .removeClass('active'); 
+            $(this).parent('li').addClass('active'); 
+        }); 
+  }
+function popover(){
+    $("[data-toggle=popover]").popover({
+       html: true  }); 
+  }
 function LoginFormLoad(){
   const inputs = document.querySelectorAll(".input");
 function addcl(){
@@ -70,11 +145,11 @@ function ChangeClass(_event){
   
 }
 
-function onWorklistLoad(){
+function onWorklistLoad(id){
   getPagination('#table-id');
 
 function getPagination(table) {
-  debugger;
+
   var lastPage = 1;
      lastPage = 1;
       $('.pagination')
@@ -196,17 +271,60 @@ function limitPagging(){
 
 
 }
+
+function getDate(){
+
+
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear()-18;
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+return today;
+//document.getElementById("datefield").setAttribute("max", today);
+
+}
+
+$(document).on('click', '.panel-heading span.clickable', function(e){
+    var $this = $(this);
+	if(!$this.hasClass('panel-collapsed')) {
+		$this.parents('.panel').find('.panel-body').slideUp();
+		$this.addClass('panel-collapsed');
+		$this.find('i').removeClass('fa-chevron-circle-up').addClass('fa-chevron-circle-down');
+	} else {
+		$this.parents('.panel').find('.panel-body').slideDown();
+		$this.removeClass('panel-collapsed');
+		$this.find('i').removeClass('fa-chevron-circle-down').addClass('fa-chevron-circle-up');
+	}
+})
+
+
+
 </script>
-
   </head>
-  <body ng-app="sample">
-    <header >
-  <span class="H3Class">Bajaj Housing Finance Limited </span>  
-          </header>
-   <div  style="width:100%">
-  
-    <div ng-view></div>
-   </div>
 
+  
+  <body ng-app="sample" >
+    
+      <header >
+        <span class="H3Class">Bajaj Housing Finance Limited </span>  
+                </header>
+                <section>
+                  <div id="dvMainSection" style="width:100%;height:300px;">
+                    <ui-view></ui-view>
+                  </div>
+                </section>
+ 
+   
+   
+    
+  
   </body>
 </html>

@@ -1,0 +1,207 @@
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+  
+      <ul class="nav navbar-nav" style="margin-top: 0px;cursor: pointer;">
+        <!-- <li class="active"><a href="#">Home</a></li> -->
+        <li class="active"><a ng-click="upload=true;" >Upload</a></li>
+
+        <li ><a ng-click="passport=true;pancard1=false;pancard2=false;upload=false;">Passport</a></li>
+        <li  class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Pan Card <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a ng-click="pancard1=true;passport=false;pancard2=false;upload=false;">Pancard1</a></li>
+            <li><a ng-click="pancard2=true;passport=false;pancard1=false;upload=false;">Pancard2</a></li>
+            <li><a ng-click="pancard1=true;pancard2=true;passport=false;upload=false;">View All</a></li>
+          </ul>
+        </li>
+     
+        <li><a href="#">Voter ID</a></li>
+        <li><a href="#">Bank Statement</a></li>
+        <li><a href="#">Salary Slip</a></li>
+       
+      </ul>
+      <div style="float: right;">
+        <button type = "button" class = "btn btn-default navbar-btn" ng-click="export();">Export</button>
+
+      </div>
+
+    </div>
+       
+  </nav>
+    <div class="container" style="margin-top:30px;">
+        
+       <div ng-show="pancard1" style="margin:10px;" class="col-sm-12"> 
+        <div class="col-sm-6" >
+            <div class="objWrapperNew" >
+                <object data="PDF/B5184114_PAN-converted.pdf#view=FitV&toolbar=0" id="dvPDFnewKYC"  type="application/pdf"  style="border:2px solid white;">
+                              </object>
+                            </div>
+        </div>
+     <div class="col-sm-5 box-shadow--6dp">    
+       <div class="row" style="padding:15px 15px 0px 15px;">
+         <div style="display: inline-block;width:50%;font-weight: bold;">
+           INCOME TAX DEPARTMENT
+         </div>
+         <div style="display: inline-block;width:20%">
+           <img src="Images/lion-capital.jpeg" style="height:60px;width:50px">
+         </div>
+         <div style="display: inline-block;font-weight: bold">
+           GOVT. OF INDIA
+         </div>
+
+       </div>
+<table class="table table-bordered" style="margin-top:20px;">
+<tr>
+<td style="font-weight:bold;">Name* :</td>
+<td   class="tdValue">Kush Kumar Singh</td>
+</tr>
+<tr>
+<td style="font-weight:bold;">Father's Name* :</td>
+<td   class="tdValue">Chhail Bihari Singh</td> 
+ 
+</tr>
+<tr>
+<td style="font-weight:bold;">Date of Birth* :</td>
+<td ng-if="!editmode" class="tdValue">08/<span class="redColorText">03</span>/1969</td> 
+</tr> 
+<tr>
+    <td style="font-weight:bold;">PAN* :</td>
+    <td   class="tdValue">DYNPS2171E</td>
+</tr>
+  </table>
+        
+     </div>
+      </div>
+      <div ng-show="pancard2" style="margin:10px;" class="col-sm-12"> 
+        <div class="col-sm-6" >
+          <div class="objWrapperNew" >
+              <object data="PDF/B5184114_PAN-converted.pdf#view=FitV&toolbar=0" id="dvPDFnewKYC"  type="application/pdf"  style="border:2px solid white;">
+                            </object>
+                          </div>
+      </div>
+   <div class="col-sm-5 box-shadow--6dp">    
+     <div class="row" style="padding:15px 15px 0px 15px;">
+       <div style="display: inline-block;width:50%;font-weight: bold;">
+         INCOME TAX DEPARTMENT
+       </div>
+       <div style="display: inline-block;width:20%">
+         <img src="Images/lion-capital.jpeg" style="height:60px;width:50px">
+       </div>
+       <div style="display: inline-block;font-weight: bold">
+         GOVT. OF INDIA
+       </div>
+
+     </div>
+<table class="table table-bordered" style="margin-top:20px;">
+<tr>
+<td style="font-weight:bold;">Name* :</td>
+<td   class="tdValue">Kush Kumar Singh</td>
+</tr>
+<tr>
+<td style="font-weight:bold;">Father's Name* :</td>
+<td   class="tdValue">Chhail Bihari Singh</td> 
+
+</tr>
+<tr>
+<td style="font-weight:bold;">Date of Birth* :</td>
+<td ng-if="!editmode" class="tdValue">08/<span class="redColorText">03</span>/1969</td> 
+</tr> 
+<tr>
+  <td style="font-weight:bold;">PAN* :</td>
+  <td   class="tdValue">DYNPS2171E</td>
+</tr>
+</table>
+      
+   </div>
+      </div>
+      <div ng-show="passport" style="margin:10px;" class="col-sm-12">
+        <div class="col-sm-6" >
+            <div class="objWrapperNew" >
+                <object data="PDF/B6004122_P-converted.pdf#view=FitV&toolbar=0"  type="application/pdf" id="objPassport"   style="border:2px solid white;">
+                              </object>
+                            </div>
+       
+        </div>
+     <div class="col-sm-5 box-shadow--6dp">
+      <div  style="padding:5px 0px 0px 5px;">
+        <div style="display: inline-block;padding-left:35%;font-weight: bold;">
+          REPUBLIC OF INDIA
+        </div>
+        
+
+      </div>
+        <table class="table table-bordered" style="margin-top:5px;margin-bottom: 10px;;" >
+            <tr><td style="font-weight:bold;">Name :</td><td class="tdValue">Kush Kumar Singh</td>
+                 
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">Date of Birth :</td><td class="tdValue">08/03/1969</td>
+
+            </tr>
+                 
+            <tr>
+              <td style="font-weight:bold;">Gender :</td><td class="tdValue">Male</td> 
+       
+          </tr>                          
+            
+            <tr><td style="font-weight:bold;">Mother's Name :</td><td class="tdValue" >Nitu Bihari Singh</td> 
+            </tr>
+            <tr>
+                <td style="font-weight:bold;">Father's/Spouse Name :</td><td class="tdValue">Chhail Bihari Singh</td> 
+
+            </tr>
+                
+                
+          
+         
+            <tr>
+                <td style="font-weight:bold;">Address :</td><td class="tdValue"><span class="redColorText">Valakulam</span>, Kerala</td> 
+         
+            </tr>
+            <tr>
+              <td style="font-weight:bold;">Issued On :</td><td class="tdValue">12/12/1992</td> 
+       
+          </tr>
+          <tr>
+            <td style="font-weight:bold;">Expiry :</td><td class="tdValue">12/12/1992</td> 
+     
+        </tr>
+                            </table>
+        
+     </div>
+      </div>
+
+      <div ng-show="upload" style="margin:10px;" class="col-sm-12">
+<div style="margin:50px;">
+  <div class="panel panel-primary" style="height:250px">
+    <div class="panel-heading">
+      <h3 class="panel-title">Upload Documents</h3>
+     
+    </div>
+    <div class="panel-body" style="height:150px">  
+      <form ng-model="file" my-file-upload>
+        <div class="form-group" >
+          <label for="fileName">Select a file</label>
+          <div class="input-group">
+            <input type="text" id="fileName" class="form-control" readonly ng-model="fileName" ng-click="browse()" multiple>
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="browse()">Browse</button>
+            </span>
+          </div>
+        </div>
+
+        
+      </form>
+    <!-- <input type="text" class="form-control" >
+    <input type="button" class="btn btn-default" Value="Upload" style="margin:10px;"> -->
+        </div>
+        <div class="panel-footer">
+          <div>
+            <button type="reset" class="btn btn-default" ng-click="reset()">Reset</button>
+            <button type="button" class="btn btn-primary" ng-click="upload()" ng-disabled="!file">Upload</button>
+          </div>
+         </div> 
+  </div>
+</div>
+      </div>
+    </div>
